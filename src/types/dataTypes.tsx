@@ -4,3 +4,5 @@ export interface Modelo {
     img?: string;
 }
 export type Semillas = string[]
+
+export type StateProp = 'menu' |  'form' |  'modelos' |  'resultado';

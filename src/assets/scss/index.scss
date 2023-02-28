@@ -1,7 +1,34 @@
 // Your variable overrides
-$body-bg: #ededed;
+$body-bg: #ebebeb;
 $body-color: #1d1d1d;
 $primary: #f1701f;
 
 // Bootstrap and its default variables
 @import "../../../node_modules/bootstrap/scss/bootstrap";
+
+html, body, #root, #root>div {
+  height: 100%;
+}
+nav{
+  position: absolute!important;
+  top: 0;
+  z-index: 9;
+}
+.customContainer{
+  position: relative;
+  padding-top: 100px;
+}
+.customContainer > .row{
+  height: 100%;
+}
+.btn-radius{
+  border-radius: 50px;
+}
+.modelos{
+  box-shadow: 0 0 10px 0 #45454563;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+}

@@ -1,5 +1,5 @@
 // Types
-import { Modelo, Semillas } from "../types/dataTypes"
+import { Modelo, Semillas, StateProp } from "../types/dataTypes"
 // Bootstrap
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -7,14 +7,13 @@ import ListGroup from 'react-bootstrap/ListGroup';
 interface Props {
   modelo: Modelo;
   semillas: Semillas;
-  setIsResultado: (arg0: boolean) => void;
-  setIsModelo: (arg0: boolean) => void;
+  setState: (arg0: StateProp) => void;
 }
-const Form = ({modelo, semillas, setIsModelo, setIsResultado}:Props) => {
+const Form = ({ setState, modelo, semillas }: Props) => {
   return (
     <div>
-      {modelo.name}
-
+      <h1>{modelo.name}</h1>
+      
       <ListGroup>
         {
           semillas?.map((semilla, i) => (
@@ -27,8 +26,8 @@ const Form = ({modelo, semillas, setIsModelo, setIsResultado}:Props) => {
         }
       </ListGroup>
 
-      <Button variant="warning" onClick={()=>setIsResultado(true)}>Completar formulario</Button>
-      <Button variant="danger" onClick={()=>setIsModelo(false)}>Volver</Button>
+      <Button variant="warning" onClick={()=>setState('resultado')} >Completar formulario</Button>
+      <Button variant="danger" onClick={()=>setState('menu')}>Volver</Button>
     </div>
   )
 }

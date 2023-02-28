@@ -1,42 +1,38 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react';
 // Components
-import Layout from './Layout';
-// Types
-import { Modelo, Semillas } from '../types/dataTypes'
-// Data
-import data from '../data/data.json'
-import Modelos from './Modelos';
 import Form from './Form';
+import Layout from './Layout';
+import Menu from './Menu';
+import Modelos from './Modelos';
 import Resultado from './Resultado';
+// Types
+import { Modelo, Semillas, StateProp } from '../types/dataTypes';
+// Data
+import data from '../data/data.json';
 
 const App = () => {
   const [modelos, setModelos] = useState<Modelo[]>(data.modelos)
   const [semillas, setSemillas] = useState<Semillas>(data.semillas)
   const [modelo, setModelo] = useState<Modelo>({})
-  const [isModelo, setIsModelo] = useState<boolean>(false)
-  const [isResultado, setIsResultado] = useState<boolean>(false)
+
+  // Setea que componente renderizar
+  const [state, setState] = useState<StateProp>("menu")
+
+  const ENUM_STATES = {
+    menu: <Menu setState={setState} />,
+    modelos: <Modelos modelos={modelos} setModelo={setModelo} setState={setState} />,
+    form: <Form modelo={modelo} semillas={semillas} setState={setState} />,
+    resultado: <Resultado />
+  };
 
   return (
-    <Layout>
+    <Layout setState={setState}>
       <>
-        {
-          !isResultado ?
-            (
-              isModelo ?
-                (
-                  <Form modelo={modelo} semillas={semillas} setIsModelo={setIsModelo} setIsResultado={setIsResultado} />
-                )
-                :
-                (
-                  <Modelos modelos={modelos} setIsModelo={setIsModelo} setModelo={setModelo} />
-                )
-            )
-            :
-            (<Resultado />)
-        }
+        {ENUM_STATES[state]}
       </>
     </Layout>
   )
+
 }
 
 export default App

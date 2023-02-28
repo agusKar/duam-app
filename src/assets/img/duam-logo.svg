@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="150" height="60" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;fill-rule:evenodd;clip-rule:evenodd">
+    <defs>
+        <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="25.93" y1="15.09" x2="14.47" y2="55.34">
+            <stop offset="0" style="stop-opacity:1;stop-color:#f58634"/>
+            <stop offset="1" style="stop-opacity:1;stop-color:#ed3237"/>
+        </linearGradient>
+    </defs>
+    <path d="M33.39 46.97v11.69L2.01 40.43C1.41 40.08 1 39.38 1 38.67V21.94h24.16c3.6 0 6.53 2.93 6.53 6.52 0 3.6-2.92 6.53-6.53 6.53h-6.52V25.8h-6.85v16.04h13.37c7.39 0 13.38-5.99 13.38-13.38 0-7.38-5.99-13.37-13.38-13.37H1c0-.71.41-1.41 1.01-1.76L22.39 1.61c.6-.35 1.42-.35 2.03 0l20.3 11.72a2.07 2.07 0 0 1 1.01 1.76v23.58c0 .71-.4 1.41-1.01 1.76l-11.33 6.54z" style="fill:url(#a)"/>
+    <path d="M143.53 41.84V28.32c0-4.43-3.61-8.05-8.05-8.05h-3.93v21.57h-5.47V20.27h-3.94c-4.44 0-8.05 3.62-8.05 8.05v13.52h-5.46V28.32c0-7.45 6.06-13.52 13.51-13.52h13.34c7.46 0 13.52 6.07 13.52 13.52v13.52h-5.47zM75.71 28.32c0 7.46-6.06 13.52-13.52 13.52-7.47 0-13.52-6.05-13.52-13.52V15.15h5.47v13.17c0 4.44 3.62 8.05 8.05 8.05 4.42 0 8.05-3.59 8.05-8.05V15.15h5.47v13.17zm29.98 0c0-7.5-6.11-13.52-13.52-13.52-7.43 0-13.52 6.01-13.52 13.52v13.52h5.47V28.32c0-4.46 3.62-8.05 8.05-8.05 4.43 0 8.05 3.61 8.05 8.05v3.56h-4.49v5.47h4.49v4.49h5.47V28.32z" style="fill:#fefefe;fill-rule:nonzero"/>
+</svg>
