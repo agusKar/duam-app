@@ -32,3 +32,10 @@ nav{
   border-radius: 10px;
   font-weight: bold;
 }
+
+.modelos:nth-child(odd){
+  flex-direction: row-reverse;
+}
+.modelos > div {
+  width: 50%;
+}

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // Components
-import Form from './Form';
+import FormModel from './FormModel';
 import Layout from './Layout';
 import Menu from './Menu';
 import Modelos from './Modelos';
@@ -21,7 +21,7 @@ const App = () => {
   const ENUM_STATES = {
     menu: <Menu setState={setState} />,
     modelos: <Modelos modelos={modelos} setModelo={setModelo} setState={setState} />,
-    form: <Form modelo={modelo} semillas={semillas} setState={setState} />,
+    form: <FormModel modelo={modelo} semillas={semillas} setState={setState} />,
     resultado: <Resultado />
   };
 

@@ -1,11 +1,8 @@
 // Bootstrap
-import Row from 'react-bootstrap/esm/Row';
-import Col from 'react-bootstrap/esm/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 //Types
-import { Modelo, StateProp } from '../types/dataTypes'
+import { Modelo, StateProp } from '../types/dataTypes';
 // Data
-import duamLogo from '../assets/img/duam-logo.svg';
 
 interface Props {
   modelos?: Modelo[];
@@ -21,22 +18,26 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
   };
 
   return (
-    <ListGroup>
-      {
-        modelos?.map((modelo, i) => (
-          <Row
-          className='modelos'
-          onClick={() => selectModelo(modelo)}>
-            <Col>
-                <img src={duamLogo} className='img-fluid' height="50" />
-            </Col>
-            <Col>
+    <>
+      <h2 className='mb-4'>Seleccioná tu modelo</h2>
+      <ListGroup>
+        {
+          modelos?.map((modelo, i) => (
+            <div
+              key={i}
+              className='d-flex modelos align-items-center'
+              onClick={() => selectModelo(modelo)}>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/images/" + modelo.img} className='img-fluid' height="50" />
+              </div>
+              <div>
                 {modelo.name}
-            </Col>
-        </Row>
-        ))
-      }
-    </ListGroup>
+              </div>
+            </div>
+          ))
+        }
+      </ListGroup>
+    </>
   )
 }
 
