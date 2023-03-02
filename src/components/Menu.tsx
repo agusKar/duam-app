@@ -1,25 +1,32 @@
-import { useState } from 'react';
+// Img
+import tool from '../assets/img/tool.svg'
+import report from '../assets/img/report.svg'
+
+// Bootstrap
 import Button from 'react-bootstrap/Button';
+
+// Data
 import { StateProp } from '../types/dataTypes';
 
 interface Props {
   setState: (arg0: StateProp) => void;
 }
 
-const Menu = ({setState}:Props) => {
-  const [isOpen, setIsOpen] = useState(true)
-  return (    
-    <div className="d-grid gap-2" >
-      <Button variant='outline-primary' className='py-3 btn-radius' color="white" size="lg" onClick={() => setState('modelos')}>
-        Seleccionar Máquina
+const Menu = ({ setState }: Props) => {
+  return (
+    <div id="menu" className='d-inline-flex flex-wrap w-100'>
+      <Button className='shadow-sm' onClick={() => setState('modelos')}>
+        <img src={tool} height="60" alt="Duam" />
+        Seleccionar <br /> Máquina
       </Button>
-      <Button variant="primary" className='py-3 btn-radius text-white' size="lg">
+      <Button className='shadow-sm'>
+        <img src={report} height="60" alt="Duam" />
         Reportes
       </Button>
-      <Button variant="primary" className='py-3 btn-radius text-white' size="lg">
+      <Button className='shadow-sm'>
         Tabla y manuales
       </Button>
-      <Button variant="primary" className='py-3 btn-radius text-white' size="lg">
+      <Button className='shadow-sm'>
         Contáctenos
       </Button>
     </div>

@@ -19,13 +19,13 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
 
   return (
     <>
-      <h2 className='mb-4'>Seleccioná tu modelo</h2>
+      <h3 className="custom-title">Seleccioná tu modelo</h3>
       <ListGroup>
         {
           modelos?.map((modelo, i) => (
             <div
               key={i}
-              className='d-flex modelos align-items-center'
+              className='d-flex modelos shadow-sm gap-2 align-items-center'
               onClick={() => selectModelo(modelo)}>
               <div>
                 <img src={process.env.PUBLIC_URL + "/images/" + modelo.img} className='img-fluid' height="50" />

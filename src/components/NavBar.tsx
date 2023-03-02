@@ -1,5 +1,4 @@
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import duamLogo from '../assets/img/duam-logo.svg';
 
@@ -16,12 +15,11 @@ const NavBar = ({ setState }: Props) => {
         className="justify-content-center"
         onClick={() => setState('menu')}
       >
-        <img
-          alt="Duam - Logo"
-          src={duamLogo}
-          className="d-inline-block align-top"
-        />
-        <Nav.Link>Menu</Nav.Link>
+            <img
+              alt="Duam - Logo"
+              src={duamLogo}
+              className="d-inline-block align-top"
+            />
       </Container>
     </Navbar>
   )

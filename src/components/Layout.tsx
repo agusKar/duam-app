@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import NavBar from "./NavBar";
 import {StateProp} from '../types/dataTypes'
+import Footer from "./Footer";
 
 type Props = {
     setState: (arg0:StateProp) => void;
@@ -14,12 +15,13 @@ const Layout = ({ setState, children }: Props) => {
         <div>
             <NavBar setState={setState} />
             <Container className="customContainer h-100">
-                <Row className="align-items-center">
-                    <Col className="mb-5">
+                <Row>
+                    <Col style={{"paddingBottom":"70px"}}>
                         {children}
                     </Col>
                 </Row>
             </Container>
+            <Footer setState={setState}  />
         </div>
     )
 }
