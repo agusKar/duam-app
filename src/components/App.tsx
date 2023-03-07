@@ -4,11 +4,12 @@ import FormModel from './FormModel';
 import Layout from './Layout';
 import Menu from './Menu';
 import Modelos from './Modelos';
-import Resultado from './Resultado';
 // Types
 import { Modelo, Semillas, StateProp } from '../types/dataTypes';
 // Data
 import data from '../data/data.json';
+import Reportes from './Reportes';
+import TablaManules from './TablaManules';
 
 const App = () => {
   const [modelos, setModelos] = useState<Modelo[]>(data.modelos)
@@ -22,7 +23,8 @@ const App = () => {
     menu: <Menu setState={setState} />,
     modelos: <Modelos modelos={modelos} setModelo={setModelo} setState={setState} />,
     form: <FormModel modelo={modelo} semillas={semillas} setState={setState} />,
-    resultado: <Resultado />
+    reportes: <Reportes />,
+    tablaManuales: <TablaManules modelos={modelos} />,
   };
 
   return (

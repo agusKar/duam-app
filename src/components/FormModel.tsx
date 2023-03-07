@@ -1,24 +1,18 @@
 import { useState } from "react";
 // Types
-import { Modelo, Semillas, StateProp } from "../types/dataTypes";
+import { Modelo, Semillas, StateProp, ResultadoEcuacion, FormModelData } from "../types/dataTypes";
 // Bootstrap
-import { Alert, Form } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
+import { Alert, Form, Button } from 'react-bootstrap';
 // Helpers
 import calculadora from '../helpers';
+import ModalCustom from "./ModalCustom";
 
 interface Props {
   modelo: Modelo;
   semillas: Semillas;
   setState: (arg0: StateProp) => void;
 }
-interface FormModelData {
-  semilla: string;
-  ancho: number;
-  velocidad: number;
-  tasa: number;
-  valorObtenidoTest: number;
-}
+
 const initialValues: FormModelData = {
   semilla: "",
   ancho: 0,
@@ -29,7 +23,8 @@ const initialValues: FormModelData = {
 
 const FormModel = ({ setState, modelo, semillas }: Props) => {
   const [formData, setFormData] = useState<FormModelData>(initialValues)
-  const [resultado, setResultado] = useState<number | string>()
+  const [resultado, setResultado] = useState<ResultadoEcuacion>()
+  const [modalShow, setModalShow] = useState<boolean>(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -43,7 +38,6 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log(formData)
     setResultado(calculadora(formData))
   }
 
@@ -51,13 +45,14 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
     <div className="mb-4">
       <div className="position-relative">
         <h3 className='custom-title'>{modelo.name}</h3>
-          <img 
-            src={process.env.PUBLIC_URL + "/images/" + modelo.img} 
-            alt="Duam"
-            className="position-absolute" 
-            style={{"width": "260px", "right": "-90px", "bottom": "-90px"}}
-          />
+        <img
+          src={process.env.PUBLIC_URL + "/images/" + modelo.img}
+          alt="Duam"
+          className="position-absolute"
+          style={{ "width": "260px", "right": "-90px", "bottom": "-90px" }}
+        />
       </div>
+
       <Form
         onSubmit={e => handleSubmit(e)}
       >
@@ -102,12 +97,29 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
         </Form.Group>
 
         {
-          resultado && <Alert variant="success" className="text-center">Resultado: <br /> <b>{resultado}</b></Alert>
+          resultado && <Alert variant="success" className="text-center">Resultado: <br /> <b>{`${resultado.title}`} {resultado.numero > 0 && resultado.numero}</b></Alert>
         }
 
-        <div className="d-flex justify-content-between align-items-center mt-5">
-          <Button className="custom-btn light shadow" onClick={() => setState('modelos')}> &#x2190; Volver </Button>
-          <Button className="custom-btn primary shadow" type="submit">Calcular</Button>
+        <div className="d-flex flex-column gap-4 mt-5">
+          <div className="d-flex justify-content-between">
+            <Button className="custom-btn light shadow" onClick={() => setState('modelos')}> &#x2190; Volver </Button>
+            <Button className="custom-btn primary shadow" type="submit">Calcular</Button>
+          </div>
+          {
+            resultado && <div>
+              <Button variant="success" className="custom-btn w-100" onClick={() => setModalShow(true)}>
+                Guardar Valores
+              </Button>
+              <ModalCustom
+                show={modalShow}
+                modelo={modelo.name}
+                resultado={resultado.numero}
+                formData={formData}
+                onHide={() => setModalShow(false)}
+              />
+            </div>
+          }
+
         </div>
       </Form>
     </div>
