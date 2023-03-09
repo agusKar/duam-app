@@ -18,11 +18,11 @@ export function Prompt() {
   );
 
   if (!isVisible) {
-    return <div />;
+    return <div className="d-none" />;
   }
 
   return (
-    <Card onClick={hide} className={`prompt p-0 bg-dark ${isVisible && 'd-none'}`}>
+    <Card onClick={hide} className="prompt p-0 bg-dark">
       <Card.Body className="d-flex align-items-center justify-content-between">
         ¿Quisieras agregar esta página como una APP?
       </Card.Body>
