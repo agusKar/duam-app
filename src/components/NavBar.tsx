@@ -12,7 +12,7 @@ const NavBar = ({ setState }: Props) => {
   return (
     <Navbar bg="dark" variant="dark" className='w-100'>
       <Container
-        className="justify-content-center"
+        className="justify-content-center cursor-pointer"
         onClick={() => setState('menu')}
       >
             <img

@@ -25,7 +25,7 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
           modelos?.map((modelo, i) => (
             <div
               key={i}
-              className='d-flex modelos shadow-sm gap-2 align-items-center'
+              className='d-flex modelos shadow-sm gap-2 align-items-center cursor-pointer'
               onClick={() => selectModelo(modelo)}>
               <div>
                 <img src={process.env.PUBLIC_URL + "/images/" + modelo.img} className='img-fluid' height="50" />

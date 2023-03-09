@@ -18,9 +18,9 @@
       "sizes": "512x512"
     }
     ],
-  "start_url": "/app/",
-  "scope": "/app/",
+  "start_url": "/calculador/",
+  "scope": "/calculador/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#ebebeb",
+  "background_color": "#262626"
 }

@@ -17,19 +17,19 @@ interface Props {
 const Menu = ({ setState }: Props) => {
   return (
     <div id="menu" className='d-inline-flex flex-wrap w-100'>
-      <Button className='shadow-sm' onClick={() => setState('modelos')}>
+      <Button className='shadow-sm cursor-pointer' onClick={() => setState('modelos')}>
         <img src={tool} height="60" alt="Duam" />
         Seleccionar <br /> Máquina
       </Button>
-      <Button className='shadow-sm' onClick={() => setState('reportes')}>
+      <Button className='shadow-sm cursor-pointer' onClick={() => setState('reportes')}>
         <img src={report} height="60" alt="Duam" />
         Reportes
       </Button>
-      <Button className='shadow-sm' onClick={() => setState('tablaManuales')}>
+      <Button className='shadow-sm cursor-pointer' onClick={() => setState('tablaManuales')}>
         <img src={manual} height="60" alt="Duam" />
         Tabla y manuales
       </Button>
-      <Button className='shadow-sm' target='_blank' href="https://api.whatsapp.com/send?phone=5492235061204">
+      <Button className='shadow-sm cursor-pointer' target='_blank' href="https://api.whatsapp.com/send?phone=5492235061204">
         <img src={wpp} height="60" alt="Duam" />
         Contáctenos
       </Button>

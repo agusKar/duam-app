@@ -7,7 +7,7 @@ interface Props {
 const Footer = ({ setState }: Props) => {
   return (
     <footer
-      className='bg-dark d-flex alignt-items-center justify-content-center py-2'
+      className='bg-dark d-flex alignt-items-center justify-content-center py-2 cursor-pointer'
       onClick={() => setState('menu')}
     >
       <div className='home-logo'>

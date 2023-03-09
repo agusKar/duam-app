@@ -34,7 +34,7 @@ const Reportes = () => {
   const [email, setEmail] = useState(localStorage.getItem("email") ? localStorage.getItem("email") : '')
   return (
     <>
-    <h3 className="custom-title">Reportes para el email: <small>{email}</small></h3>
+    <h3 className="custom-title">Reportes para el email: <span>{email}</span></h3>
     <Table bordered striped hover responsive variant='light' className='mt-3 text-center'>
       <thead>
         <tr>
