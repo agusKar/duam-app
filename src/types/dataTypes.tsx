@@ -2,6 +2,7 @@ export interface Modelo {
     name?: string;
     desc?: string;
     img?: string;
+    tipo?: string;
 }
 export type Semillas = string[]
 

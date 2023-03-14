@@ -1,8 +1,10 @@
+import { useEffect } from 'react';
 // Bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
 //Types
 import { Modelo, StateProp } from '../types/dataTypes';
-// Data
+// Images
+import label from '../assets/img/label.svg'
 
 interface Props {
   modelos?: Modelo[];
@@ -17,6 +19,24 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
     setState('form');
   };
 
+  // useEffect(() => {
+  //   const requestOptions = {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: JSON.stringify({ email: 'a@a.com' })
+  // };
+  //   fetch(`https://www.duam.ar/api/items/create`,requestOptions)
+  //     .then(res => res.json())
+  //     .then(
+  //       (result) => {
+  //         console.log(result)
+  //       },
+  //       (error) => {
+  //         console.log(error)
+  //       }
+  //     )
+  // }, [])
+
   return (
     <>
       <h3 className="custom-title">Seleccioná tu modelo</h3>
@@ -28,10 +48,11 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
               className='d-flex modelos shadow-sm gap-2 align-items-center cursor-pointer'
               onClick={() => selectModelo(modelo)}>
               <div>
-                <img src={process.env.PUBLIC_URL + "/images/" + modelo.img} className='img-fluid' height="50" />
+                <img src={process.env.PUBLIC_URL + "/images/" + modelo.img} className='img-fluid' height="50" alt={modelo.name} />
               </div>
-              <div>
+              <div className='titulo'>
                 {modelo.name}
+                <span><img src={label} alt="Label - Duam" />{modelo.tipo}</span>
               </div>
             </div>
           ))

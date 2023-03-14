@@ -1,64 +1,28 @@
 {
     "modelos": [
         {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
+            "name": "SEMBRADORA AL VOLEO DV-300",
+            "desc": "La sembradora / fertilizadora DUAM DV-300 es una máquina versátil capaz de esparcir uniformemente todo tipo de productos al voleo, sus dos platos dosificadores permiten una esparcimiento uniforme del material a volear.",
+            "img": "dv-300.png",
+            "tipo": "voleo"
         },
         {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
+            "name": "SEMBRADORA AL VOLEO DV-120",
+            "desc": "La sembradora / fertilizadora DUAM DV-120 es una máquina versátil capaz de esparcir uniformemente todo tipo de productos al voleo, su funcionamiento eléctrico mediante 12 volts de corriente continua le permite ser colocada o montada en cualquier tipo de vehículo.",
+            "img": "dv-120.png",
+            "tipo": "voleo"
         },
         {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
+            "name": "APLICADORA POR SURCOS AS-60",
+            "desc": "La sembradora de pasturas y aplicadora de granulados DUAM AS-60 es una máquina especialmente diseñada para sembrar y depositar producto/semilla por surco durante la operación de siembra, su funcionamiento eléctrico mediante 12 volts de corriente continua le permite al cliente montarla fácilmente sobre cualquier sembradora.",
+            "img": "as-60.png",
+            "tipo": "surcos"
         },
         {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
-        },
-        {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
-        },
-        {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
-        },
-        {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
-        },
-        {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
-        },
-        {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
-        },
-        {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
-        },
-        {
-            "name": "SEMBRADORA NEUMÁTICA SN-250",
-            "desc": "La máquina que ud. necesita para aplicar fertilizante microgranulados y sembrar con precisión pasturas y verdeos en cobertura total.",
-            "img": "sn-250.png"
-        },
-        {
-            "name": "SUBSOLADOR TIPO JUMBO SE-5",
-            "desc": "El subsolador escarificador DUAM SE-5 tiene un chasis fabricado con caño estructural 100x100x 6,35mm. de espesor lo que le confiere una rigidez y robustez para realizar los trabajo mas pesados de laboreo.",
-            "img": "se-5.png"
+            "name": "APLICADORA POR SURCOS AS-30",
+            "desc": "La aplicadora de plaguicidas granulados DUAM AS-30 es una máquina especialmente diseñada para depositar granulados por surco durante la operación de siembra, su funcionamiento eléctrico mediante 12 volts de corriente continua le permite al cliente montarla fácilmente sobre cualquier sembradora.",
+            "img": "as-30.png",
+            "tipo": "surcos"
         }
     ],
     "semillas": [

@@ -14,7 +14,7 @@ body,
   overflow-x: hidden;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -25,29 +25,31 @@ nav {
   box-shadow: 0 0 5px #262626;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer;
 }
 
 .custom-title {
   background-color: #fff;
   border-radius: 15px;
-  padding: 20px 10px;  
+  padding: 20px 10px;
   box-shadow: 4px 5px 0px $primary;
   text-align: center;
   font-weight: 400;
   letter-spacing: 2px;
   margin-bottom: 2rem;
   text-transform: uppercase;
-  & span{
+
+  & span {
     text-transform: lowercase;
     font-size: 1.6rem;
   }
 }
 
 #menu {
+
   & button,
-  & a{
+  & a {
     width: calc(50% - 20px);
     color: #262626;
     background-color: white;
@@ -79,7 +81,7 @@ nav {
   }
 }
 
-.prompt{
+.prompt {
   position: absolute;
   top: 10px;
   box-shadow: 0 0 5px #262626;
@@ -89,10 +91,12 @@ nav {
   width: 80%;
   z-index: 999;
   text-align: center;
-  & .card-body{
+
+  & .card-body {
     color: $body-bg;
   }
-  & .card-footer{
+
+  & .card-footer {
     padding: 20px;
   }
 }
@@ -127,6 +131,25 @@ nav {
     width: 50%;
   }
 
+  & .titulo {
+    font-weight: 400;
+
+    & span {
+      font-weight: 600;
+      display: block;
+      color: $primary;
+      text-transform: capitalize;
+
+      & img {
+        background-color: transparent;
+        padding: 0;
+        height: 15px;
+        opacity: .7;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
   & img {
     background-color: #eee;
     border-radius: 15px;
@@ -141,7 +164,7 @@ form select {
   padding: 10px !important;
 }
 
-.custom-btn{
+.custom-btn {
   border-radius: 15px;
   padding: 20px 30px;
   text-align: center;
@@ -149,29 +172,35 @@ form select {
   color: #fff;
   text-transform: uppercase;
   border: 0;
-  &.primary{
+
+  &.primary {
     background-color: $primary;
   }
-  &.light{
+
+  &.light {
     color: $dark;
     background-color: $light;
   }
-  &.success{
+
+  &.success {
     background-color: $success;
   }
-  &.danger{
+
+  &.danger {
     background-color: $danger;
   }
-  &.warning{
+
+  &.warning {
     background-color: $warning;
   }
-  &.info{
+
+  &.info {
     background-color: $info;
   }
 }
 
-#tablaManuales{
-  & > div{
+#tablaManuales {
+  &>div {
     margin: 10px;
     width: calc(50% - 20px);
     text-align: center;
