@@ -1,28 +1,36 @@
 import { Modelo } from "../types/dataTypes"
 import pdf from '../assets/img/pdf.svg'
+import { Row, Col } from "react-bootstrap"
 
-interface Props{
+interface Props {
   modelos: Modelo[]
 }
 
-const TablaManules = ({modelos}:Props) => {
+const TablaManules = ({ modelos }: Props) => {
   return (
     <>
-    <h3 className="custom-title">Descarga el manual de usuario de cada modelo</h3>
-    <div id='tablaManuales' className='d-inline-flex flex-wrap w-100'>
-      {
-        modelos.map((modelo, index)=>(
-          <div key={index} className='shadow-sm'>
-            <img src={pdf} alt="Duam" className="img-fluid mb-3" />
-            {/* Aqui iria el PDF de cada maquina */}
-            <a href={process.env.PUBLIC_URL + "/images/" + modelo.img} download>
-              {modelo.name}
-            </a>
-          </div>
-        ))
-      }
-    </div>
-      </>
+      <h3 className="custom-title">Descargá el manual de usuario de cada modelo</h3>
+      <Row id='tablaManuales'>
+        {
+          modelos.map((modelo, index) => {
+            if (modelo.pdf && modelo.pdf !== '') {
+              return (
+                <Col xs={12} md={4} key={index}>
+                  <div className="shadow-sm my-2 d-flex flex-column p-4 bg-white text-center">
+                    <img src={pdf} alt="Duam" className="img-fluid mb-3" />
+                    <a href={process.env.PUBLIC_URL + "/pdf/" + modelo.pdf} download>
+                      {modelo.name}
+                    </a>
+                  </div>
+                </Col>
+              )
+            }
+          }
+
+          )
+        }
+      </Row>
+    </>
   )
 }
 

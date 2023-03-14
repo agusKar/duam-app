@@ -15,7 +15,10 @@ interface Props {
 }
 
 const ModalCustom = ({ show, modelo, resultado, formData, onHide }: Props) => {
-  const [email, setEmail] = useState(localStorage.getItem("email") ? localStorage.getItem("email") : '')
+  const [email, setEmail] = useState(
+    localStorage.getItem("email") ? 
+      JSON.parse(localStorage.getItem("email") as string) 
+      : '')
   const [emailValid, setEmailValid] = useState<boolean>(localStorage.getItem("email") ? true : false)
 
   const handleEmail = () => {

@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
 // Bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
 //Types
 import { Modelo, StateProp } from '../types/dataTypes';
 // Images
-import label from '../assets/img/label.svg'
+import label from '../assets/img/label.svg';
 
 interface Props {
   modelos?: Modelo[];
@@ -18,24 +17,6 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
     setModelo(modelo);
     setState('form');
   };
-
-  // useEffect(() => {
-  //   const requestOptions = {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/json' },
-  //     body: JSON.stringify({ email: 'a@a.com' })
-  // };
-  //   fetch(`https://www.duam.ar/api/items/create`,requestOptions)
-  //     .then(res => res.json())
-  //     .then(
-  //       (result) => {
-  //         console.log(result)
-  //       },
-  //       (error) => {
-  //         console.log(error)
-  //       }
-  //     )
-  // }, [])
 
   return (
     <>

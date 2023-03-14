@@ -4,6 +4,7 @@
             "name": "SEMBRADORA AL VOLEO DV-300",
             "desc": "La sembradora / fertilizadora DUAM DV-300 es una máquina versátil capaz de esparcir uniformemente todo tipo de productos al voleo, sus dos platos dosificadores permiten una esparcimiento uniforme del material a volear.",
             "img": "dv-300.png",
+            "pdf":"dv-300.pdf",
             "tipo": "voleo"
         },
         {
@@ -16,13 +17,15 @@
             "name": "APLICADORA POR SURCOS AS-60",
             "desc": "La sembradora de pasturas y aplicadora de granulados DUAM AS-60 es una máquina especialmente diseñada para sembrar y depositar producto/semilla por surco durante la operación de siembra, su funcionamiento eléctrico mediante 12 volts de corriente continua le permite al cliente montarla fácilmente sobre cualquier sembradora.",
             "img": "as-60.png",
-            "tipo": "surcos"
+            "tipo": "surcos",
+            "cantBajadas": 6
         },
         {
             "name": "APLICADORA POR SURCOS AS-30",
             "desc": "La aplicadora de plaguicidas granulados DUAM AS-30 es una máquina especialmente diseñada para depositar granulados por surco durante la operación de siembra, su funcionamiento eléctrico mediante 12 volts de corriente continua le permite al cliente montarla fácilmente sobre cualquier sembradora.",
             "img": "as-30.png",
-            "tipo": "surcos"
+            "tipo": "surcos",
+            "cantBajadas": 4
         }
     ],
     "semillas": [

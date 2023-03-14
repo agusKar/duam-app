@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // Types
 import { Modelo, Semillas, StateProp, ResultadoEcuacion, FormModelData } from "../types/dataTypes";
 // Bootstrap
@@ -18,17 +18,19 @@ const initialValues: FormModelData = {
   ancho: 0,
   velocidad: 0,
   tasa: 0,
-  valorObtenidoTest: 0
+  valorObtenidoTest: 0,
+  tipo: "",
+  cantBajadas: 0
 };
 
 const FormModel = ({ setState, modelo, semillas }: Props) => {
   const [formData, setFormData] = useState<FormModelData>(initialValues)
-  const [resultado, setResultado] = useState<ResultadoEcuacion>()
+  const [resultado, setResultado] = useState<ResultadoEcuacion>({ title: '', numero: 0, estado: false })
   const [modalShow, setModalShow] = useState<boolean>(false)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    const valNum = name === "semilla" ? value : parseFloat(value);
+    const valNum = name === "semilla" ? value : parseFloat(value) || 0;
 
     setFormData({
       ...formData,
@@ -38,8 +40,13 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    formData.tipo = modelo.tipo ? modelo.tipo : ''
+    formData.cantBajadas = modelo.cantBajadas ? modelo.cantBajadas : 0
     setResultado(calculadora(formData))
   }
+  useEffect(() => {
+    return () => { setResultado({ title: '', numero: 0, estado: false }) }
+  }, [])
 
   return (
     <div className="mb-4">
@@ -56,13 +63,12 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
       <Form
         onSubmit={e => handleSubmit(e)}
       >
-
         <Form.Group className="mb-4">
           <Form.Label>Material a aplicar</Form.Label>
           <Form.Control
             as="select"
             name="semilla"
-            aria-label="Default select example"
+            aria-label="Material a aplicar"
             onChange={handleInputChange}
           >
             <option>Seleccionar semilla</option>
@@ -91,13 +97,12 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
           <Form.Control onChange={handleInputChange} value={formData.tasa || ''} name="tasa" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
         </Form.Group>
 
-        <Form.Group className="mb-4">
-          <Form.Label>Valor obtenido test (kg/min)</Form.Label>
-          <Form.Control onChange={handleInputChange} value={formData.valorObtenidoTest || ''} name="valorObtenidoTest" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
-        </Form.Group>
-
         {
-          resultado && <Alert variant="success" className="text-center">Resultado: <br /> <b>{`${resultado.title}`} {resultado.numero > 0 && resultado.numero}</b></Alert>
+          formData.tipo == 'voleo' &&
+          <Form.Group className="mb-4">
+            <Form.Label>Valor obtenido test (kg/min)</Form.Label>
+            <Form.Control onChange={handleInputChange} value={formData.valorObtenidoTest || ''} name="valorObtenidoTest" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+          </Form.Group>
         }
 
         <div className="d-flex flex-column gap-4 mt-5">
@@ -106,22 +111,33 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
             <Button className="custom-btn primary shadow" type="submit">Calcular</Button>
           </div>
           {
-            resultado && <div>
-              <Button variant="success" className="custom-btn w-100" onClick={() => setModalShow(true)}>
-                Guardar Valores
-              </Button>
-              <ModalCustom
-                show={modalShow}
-                modelo={modelo.name}
-                resultado={resultado.numero}
-                formData={formData}
-                onHide={() => setModalShow(false)}
-              />
-            </div>
+            resultado.title != '' &&
+            <>
+              {
+                !resultado.estado ?
+                  <Alert variant="danger" className="text-center"><b>{`${resultado.title}`}</b></Alert>
+                  :
+                  <>
+                    <Alert variant="success" className="text-center">Resultado: <br /> <b>{`${resultado.title}`} {resultado.numero > 0 && resultado.numero}</b></Alert>
+                    <Button variant="success" className="custom-btn w-100" onClick={() => setModalShow(true)}>
+                      Guardar Valores
+                    </Button>
+                    <ModalCustom
+                      show={modalShow}
+                      modelo={modelo.name}
+                      resultado={resultado.numero}
+                      formData={formData}
+                      onHide={() => setModalShow(false)}
+                    />
+                  </>
+              }
+            </>
           }
+
 
         </div>
       </Form>
+      <small className="mt-4 d-block text-muted">EL PG (PODER GERMINATIVO) NO ESTA CONTEMPLADO EN LOS CÁLCULOS de ESTE TEST. EL CLIENTE  DEBERÁ AGREGAR AL VALOR OBTENIDO LUEGO DE REALIZAR EL CÁLCULO, EL PORCENTUAL SUGERIDO POR EL PROVEEDOR DE LAS SEMILLAS O PRODUCTO A DISPERSAR.</small>
     </div>
   )
 }
