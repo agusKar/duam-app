@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 // Types
-import { Modelo, Semillas, StateProp, ResultadoEcuacion, FormModelData } from "../types/dataTypes";
+import { FormModelData, Modelo, ResultadoEcuacion, Semillas, StateProp } from "../types/dataTypes";
 // Bootstrap
-import { Alert, Form, Button } from 'react-bootstrap';
+import { Alert, Button, Form } from 'react-bootstrap';
 // Helpers
 import calculadora from '../helpers';
 import ModalCustom from "./ModalCustom";
@@ -15,12 +15,14 @@ interface Props {
 
 const initialValues: FormModelData = {
   semilla: "",
-  ancho: 0,
+  tipo: "",
   velocidad: 0,
+  ancho: 0,
   tasa: 0,
   valorObtenidoTest: 0,
-  tipo: "",
-  cantBajadas: 0
+  cantBajadas: 0,
+  densidadSiembra: 0,
+  distanciaBajadas: 0
 };
 
 const FormModel = ({ setState, modelo, semillas }: Props) => {
@@ -60,9 +62,8 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
         />
       </div>
 
-      <Form
-        onSubmit={e => handleSubmit(e)}
-      >
+      <Form onSubmit={e => handleSubmit(e)} >
+
         <Form.Group className="mb-4">
           <Form.Label>Material a aplicar</Form.Label>
           <Form.Control
@@ -83,28 +84,50 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
         </Form.Group>
 
         <Form.Group className="mb-4">
-          <Form.Label>Ancho de trabajo (mts)</Form.Label>
-          <Form.Control onChange={handleInputChange} value={formData.ancho || ''} name="ancho" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
-        </Form.Group>
-
-        <Form.Group className="mb-4">
           <Form.Label>Velocidad (km/h)</Form.Label>
           <Form.Control onChange={handleInputChange} value={formData.velocidad || ''} name="velocidad" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
         </Form.Group>
-
-        <Form.Group className="mb-4">
-          <Form.Label>Tasa de aplicación (kg/ha)</Form.Label>
-          <Form.Control onChange={handleInputChange} value={formData.tasa || ''} name="tasa" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
-        </Form.Group>
         {
-          
+          modelo.tipo === "surcos" &&
+          <>
+            <Form.Group className="mb-4">
+              <Form.Label>Densidad de siembra deseada</Form.Label>
+              <Form.Control onChange={handleInputChange} value={formData.densidadSiembra || ''} name="densidadSiembra" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+            </Form.Group>
+
+            <Form.Group className="mb-4">
+              <Form.Label>Distancia entre bajadas</Form.Label>
+              <Form.Control onChange={handleInputChange} value={formData.distanciaBajadas || ''} name="distanciaBajadas" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+            </Form.Group>
+
+            <Form.Group className="mb-4">
+              <Form.Label>Cantidad bajadas</Form.Label>
+              <Form.Control value={modelo.cantBajadas} name="cantBajadas" type="number" step="0.01" readOnly />
+            </Form.Group>
+          </>
+        }
+        {
           modelo.tipo === "voleo" &&
-          <Form.Group className="mb-4">
-            <Form.Label>Valor obtenido test (kg/min)</Form.Label>
-            <Form.Control onChange={handleInputChange} value={formData.valorObtenidoTest || ''} name="valorObtenidoTest" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
-          </Form.Group>
+          <>
+            <Form.Group className="mb-4">
+              <Form.Label>Valor obtenido test (kg/min)</Form.Label>
+              <Form.Control onChange={handleInputChange} value={formData.valorObtenidoTest || ''} name="valorObtenidoTest" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+            </Form.Group>
+
+
+            <Form.Group className="mb-4">
+              <Form.Label>Ancho de trabajo (mts)</Form.Label>
+              <Form.Control onChange={handleInputChange} value={formData.ancho || ''} name="ancho" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+            </Form.Group>
+
+            <Form.Group className="mb-4">
+              <Form.Label>Tasa de aplicación (kg/ha)</Form.Label>
+              <Form.Control onChange={handleInputChange} value={formData.tasa || ''} name="tasa" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
+            </Form.Group>
+          </>
         }
 
+        {/* Buttons */}
         <div className="d-flex flex-column gap-4 mt-5">
           <div className="d-flex justify-content-between">
             <Button className="custom-btn light shadow" onClick={() => setState('modelos')}> &#x2190; Volver </Button>

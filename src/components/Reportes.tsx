@@ -81,24 +81,27 @@ const Reportes = () => {
                 <th>Valor Obt. (kg/min)</th>
                 <th>Tipo</th>
                 <th>Cantidad Bajadas</th>
+                <th>Densidad siembra</th>
+                <th>Distancia bajadas</th>
                 <th><b>Resultado</b></th>
               </tr>
             </thead>
             <tbody>
 
-              { 
-                
+              {
                 reportes?.map((value, index) => (
                   <tr key={index}>
                     <td>{value[1]}</td>
                     <td>{value[2]}</td>
-                    <td>{value[3] == 0 ? "-" : value[3] }</td>
-                    <td>{value[4] == 0 ? "-" : value[4] }</td>
-                    <td>{value[5] == 0 ? "-" : value[5] }</td>
-                    <td>{value[6] == 0 ? "-" : value[6] }</td>
+                    <td>{value[3] == 0 ? "-" : value[3]}</td>
+                    <td>{value[4] == 0 ? "-" : value[4]}</td>
+                    <td>{value[5] == 0 ? "-" : value[5]}</td>
+                    <td>{value[6] == 0 ? "-" : value[6]}</td>
                     <td>{value[7]}</td>
-                    <td>{value[8] == 0 ? "-" : value[8] }</td>
-                    <td><b>{value[10]+" "+value[9]}</b></td>
+                    <td>{value[8]}</td>
+                    <td>{value[9]}</td>
+                    <td>{value[10] == 0 ? "-" : value[10]}</td>
+                    <td><b>{value[11] + " " + value[12]}</b></td>
                   </tr>
                 ))
               }

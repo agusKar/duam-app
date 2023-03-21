@@ -1,17 +1,28 @@
 import { FormModelData, ResultadoEcuacion } from '../types/dataTypes'
 
 const calculadora = (data: FormModelData): ResultadoEcuacion => {
-  const { ancho, velocidad, tasa, valorObtenidoTest, tipo, cantBajadas } = data
+  const { ancho, velocidad, tasa, valorObtenidoTest, tipo, cantBajadas, densidadSiembra, distanciaBajadas } = data
 
   // Todos los datos ingresados 
   if (velocidad > 0 && ancho > 0 && tasa > 0 && valorObtenidoTest && valorObtenidoTest > 0) {
     return { title: 'Error, todos los datos fueron ingresados.', numero: 0, estado: false };
   }
 
-  if (tipo === "surcos" && velocidad > 0 && ancho > 0 && cantBajadas && cantBajadas > 0) {
-    // =B28/(B33/((B29*B30)*(B32*1000)/60))/B31
-    let result = 20 / (10000 / ((ancho * cantBajadas) * ((velocidad * 1000) / 60))) / cantBajadas
-    return { title: 'Valor obtenido test (kg/min):', numero: result, estado: true };
+  if (tipo === "surcos" && velocidad > 0 && cantBajadas && densidadSiembra && densidadSiembra > 0 && distanciaBajadas && distanciaBajadas > 0) {
+    /*
+      =B28/(B33/((B29*B30)*(B32*1000)/60))/B31
+      b28 densidad siembra
+      b33 10000
+      b29 distancia bajadas
+      b30 cantidad bajadas -1
+      b32 velocidad
+      b31 cantidad bajadas
+    */
+    let hectarea = 10000;
+    let espacioDosificadores = cantBajadas-1;
+    let resultado = densidadSiembra / (hectarea / ((distanciaBajadas * espacioDosificadores) * (velocidad * 1000) / 60)) / cantBajadas;
+    
+    return { title: 'Resultado:', numero: parseFloat(resultado.toFixed(4)) , estado: true };
   }
 
   if (tipo === "voleo") {

@@ -20,9 +20,11 @@ export interface ResultadoEcuacion {
 export interface FormModelData {
   semilla: string;
   tipo: string
-  ancho: number;
-  velocidad: number;
-  tasa: number;
-  valorObtenidoTest?: number;
-  cantBajadas?: number
+  velocidad: number; //ambas
+  ancho: number; //voleo
+  tasa: number;//voleo
+  valorObtenidoTest?: number;//voleo
+  cantBajadas?: number//surco
+  densidadSiembra?: number//surco
+  distanciaBajadas?: number//surco
 }

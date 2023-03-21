@@ -36,7 +36,7 @@ const ModalCustom = ({ show, modelo, resultado, formData, onHide }: Props) => {
 
   }
   const handleCSV = () => {
-    const csvFileData = { "email": email, "modelo": modelo, "semilla": formData.semilla, "ancho": formData.ancho, "velocidad": formData.velocidad, "tasa": formData.tasa, "valorObtenidoTest": formData.valorObtenidoTest, "tipo": formData.tipo, "cantBajadas": formData.cantBajadas, "resultadoNum": resultado.numero, "resultadoTitulo": resultado.title };
+    const csvFileData = { "email": email, "modelo": modelo, "semilla": formData.semilla, "ancho": formData.ancho, "velocidad": formData.velocidad, "tasa": formData.tasa, "valorObtenidoTest": formData.valorObtenidoTest, "tipo": formData.tipo, "cantBajadas": formData.cantBajadas,"densidadSiembra":formData.densidadSiembra,"distanciaBajadas":formData.distanciaBajadas, "resultadoNum": resultado.numero, "resultadoTitulo": resultado.title };
 
     // Guardar en BD la data
     const requestOptions = {
