@@ -2,34 +2,21 @@ import { useEffect, useState } from 'react'
 import { Alert, Table } from 'react-bootstrap'
 import { SECRET_TOKEN } from '../config'
 
-const mock = [{
-  "email": "agustin@agustin.com",
-  "modelo": "SEMBRADORA NEUMÁTICA SN-250",
-  "semilla": "Trigo",
-  "ancho": "6",
-  "velocidad": "66",
-  "tasa": "44",
-  "valorObtenidoTest": "0",
-  "resultado": "0.14"
-}, {
-  "email": "agustin@agustin.com",
-  "modelo": "SEMBRADORA NEUMÁTICA SN-250",
-  "semilla": "Trigo",
-  "ancho": "6",
-  "velocidad": "66",
-  "tasa": "44",
-  "valorObtenidoTest": "0",
-  "resultado": "0.14"
-}, {
-  "email": "agustin@agustin.com",
-  "modelo": "SEMBRADORA NEUMÁTICA SN-250",
-  "semilla": "Trigo",
-  "ancho": "6",
-  "velocidad": "66",
-  "tasa": "44",
-  "valorObtenidoTest": "0",
-  "resultado": "0.14"
-}]
+// const mock = [{
+//     "email": "c@c.com",
+//     "modelo": "APLICADORA POR SURCOS AS-60",
+//     "semilla": "",
+//     "ancho": 0,
+//     "velocidad": 4,
+//     "tasa": 0,
+//     "valorObtenidoTest": 0,
+//     "tipo": "surcos",
+//     "cantBajadas": 6,
+//     "densidadSiembra": 20,
+//     "distanciaBajadas": 0.2,
+//     "resultadoNum": 0.0222,
+//     "resultadoTitulo": "Resultado:"
+// }]
 
 const Reportes = () => {
   const [email, setEmail] = useState(
@@ -87,8 +74,24 @@ const Reportes = () => {
               </tr>
             </thead>
             <tbody>
-
-              {
+            {
+                reportes?.map((value, index) => (
+                  <tr key={index}>
+                    <td>{value}</td>
+                    <td>{value[2]}</td>
+                    <td>{value[3] == 0 ? "-" : value[3]}</td>
+                    <td>{value[4] == 0 ? "-" : value[4]}</td>
+                    <td>{value[5] == 0 ? "-" : value[5]}</td>
+                    <td>{value[6] == 0 ? "-" : value[6]}</td>
+                    <td>{value[7]}</td>
+                    <td>{value[8] == 0 ? "-" : value[8]}</td>
+                    <td>{value[9] == 0 ? "-" : value[9]}</td>
+                    <td>{value[10] == 0 ? "-" : value[10]}</td>
+                    <td>{value[12]} <b>{value[11]}</b></td>
+                  </tr>
+                ))
+              }
+              {/* {
                 reportes?.map((value, index) => (
                   <tr key={index}>
                     <td>{value[1]}</td>
@@ -98,13 +101,13 @@ const Reportes = () => {
                     <td>{value[5] == 0 ? "-" : value[5]}</td>
                     <td>{value[6] == 0 ? "-" : value[6]}</td>
                     <td>{value[7]}</td>
-                    <td>{value[8]}</td>
-                    <td>{value[9]}</td>
+                    <td>{value[8] == 0 ? "-" : value[8]}</td>
+                    <td>{value[9] == 0 ? "-" : value[9]}</td>
                     <td>{value[10] == 0 ? "-" : value[10]}</td>
-                    <td><b>{value[11] + " " + value[12]}</b></td>
+                    <td>{`${value[12]} <b>${value[11]}</b>`}</td>
                   </tr>
                 ))
-              }
+              } */}
             </tbody>
           </Table>
       }
