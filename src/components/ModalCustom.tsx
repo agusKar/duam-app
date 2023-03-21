@@ -1,25 +1,28 @@
 import { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import { Alert, Form } from 'react-bootstrap';
 // Bootstrap
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 // Types
 import { FormModelData, Modelo, ResultadoEcuacion } from "../types/dataTypes";
 
+import { SECRET_TOKEN } from '../config'
+
 interface Props {
   show?: boolean;
   modelo: Modelo['name'];
-  resultado: ResultadoEcuacion['numero'];
+  resultado: ResultadoEcuacion;
   formData: FormModelData;
   onHide: () => void;
 }
 
 const ModalCustom = ({ show, modelo, resultado, formData, onHide }: Props) => {
   const [email, setEmail] = useState(
-    localStorage.getItem("email") ? 
-      JSON.parse(localStorage.getItem("email") as string) 
+    localStorage.getItem("email") ?
+      JSON.parse(localStorage.getItem("email") as string)
       : '')
   const [emailValid, setEmailValid] = useState<boolean>(localStorage.getItem("email") ? true : false)
+  const [alert, setAlert] = useState<boolean>(false);
 
   const handleEmail = () => {
     setEmail('');
@@ -33,10 +36,35 @@ const ModalCustom = ({ show, modelo, resultado, formData, onHide }: Props) => {
 
   }
   const handleCSV = () => {
-    const csvFileData = {"email": email, "modelo": modelo, "semilla":formData.semilla, "ancho":formData.ancho, "velocidad":formData.velocidad, "tasa":formData.tasa, "valorObtenidoTest":formData.valorObtenidoTest, "resultado":resultado};
-    console.log(csvFileData)
+    const csvFileData = { "email": email, "modelo": modelo, "semilla": formData.semilla, "ancho": formData.ancho, "velocidad": formData.velocidad, "tasa": formData.tasa, "valorObtenidoTest": formData.valorObtenidoTest, "tipo": formData.tipo, "cantBajadas": formData.cantBajadas, "resultadoNum": resultado.numero, "resultadoTitulo": resultado.title };
+
     // Guardar en BD la data
-    onHide()
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Authorization': SECRET_TOKEN },
+      body: JSON.stringify(csvFileData)
+    };
+    const saveReporte = () => {
+      console.log(csvFileData)
+      fetch(`https://www.duam.ar/api/items/create`, requestOptions)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            console.log(result)
+            if (!result.status) {
+              throw new Error("Not 200 response", { cause: result.message });
+            } else {
+              setAlert(false)
+              onHide()
+            }
+          }
+        )
+        .catch(error => {
+          setAlert(true)
+          console.log(error)
+        })
+    }
+    saveReporte()
   }
 
   return (
@@ -74,6 +102,9 @@ const ModalCustom = ({ show, modelo, resultado, formData, onHide }: Props) => {
             </Form>
           }
         </Modal.Body>
+        {
+          alert && <Alert variant='danger'>Hubo un error.</Alert>
+        }
         <Modal.Footer className='justify-content-center'>
           {
             emailValid &&

@@ -9,13 +9,14 @@ const calculadora = (data: FormModelData): ResultadoEcuacion => {
   }
 
   if (tipo === "surcos" && velocidad > 0 && ancho > 0 && cantBajadas && cantBajadas > 0) {
+    // =B28/(B33/((B29*B30)*(B32*1000)/60))/B31
     let result = 20 / (10000 / ((ancho * cantBajadas) * ((velocidad * 1000) / 60))) / cantBajadas
     return { title: 'Valor obtenido test (kg/min):', numero: result, estado: true };
   }
 
   if (tipo === "voleo") {
     // Todos los datos vacios
-    if (velocidad == 0 && ancho == 0 && tasa == 0 && valorObtenidoTest == 0) {
+    if (velocidad === 0 && ancho === 0 && tasa === 0 && valorObtenidoTest === 0) {
       return { title: 'Error, faltan datos.', numero: 0, estado: false };
     }
     // Calcular velocidad

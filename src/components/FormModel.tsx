@@ -96,9 +96,9 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
           <Form.Label>Tasa de aplicación (kg/ha)</Form.Label>
           <Form.Control onChange={handleInputChange} value={formData.tasa || ''} name="tasa" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
         </Form.Group>
-
         {
-          formData.tipo == 'voleo' &&
+          
+          modelo.tipo === "voleo" &&
           <Form.Group className="mb-4">
             <Form.Label>Valor obtenido test (kg/min)</Form.Label>
             <Form.Control onChange={handleInputChange} value={formData.valorObtenidoTest || ''} name="valorObtenidoTest" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
@@ -125,7 +125,7 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
                     <ModalCustom
                       show={modalShow}
                       modelo={modelo.name}
-                      resultado={resultado.numero}
+                      resultado={resultado}
                       formData={formData}
                       onHide={() => setModalShow(false)}
                     />
