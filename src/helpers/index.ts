@@ -9,15 +9,6 @@ const calculadora = (data: FormModelData): ResultadoEcuacion => {
   }
 
   if (tipo === "surcos" && velocidad > 0 && cantBajadas && densidadSiembra && densidadSiembra > 0 && distanciaBajadas && distanciaBajadas > 0) {
-    /*
-      =B28/(B33/((B29*B30)*(B32*1000)/60))/B31
-      b28 densidad siembra
-      b33 10000
-      b29 distancia bajadas
-      b30 cantidad bajadas -1
-      b32 velocidad
-      b31 cantidad bajadas
-    */
     let hectarea = 10000;
     let espacioDosificadores = cantBajadas-1;
     let resultado = densidadSiembra / (hectarea / ((distanciaBajadas * espacioDosificadores) * (velocidad * 1000) / 60)) / cantBajadas;

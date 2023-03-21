@@ -12,6 +12,7 @@ body,
 #root>div {
   height: 100%;
   overflow-x: hidden;
+  font-family: 'Exo 2', sans-serif;
 }
 @media screen and (max-width:468px){
   html{
@@ -34,10 +35,10 @@ nav {
 }
 
 .custom-title {
-  background-color: #fff;
+  background-color: $primary;
   border-radius: 15px;
-  padding: 20px 10px;
-  box-shadow: 4px 5px 0px $primary;
+  padding: 1rem;
+  color: white;
   text-align: center;
   font-weight: 400;
   letter-spacing: 2px;
@@ -46,7 +47,10 @@ nav {
 
   & span {
     text-transform: lowercase;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    margin-top: 0.8rem;
+    display: block;
+    font-weight: 200;
   }
 }
 
@@ -125,10 +129,26 @@ nav {
   border-radius: 10px;
   font-weight: 200;
   text-align: right;
+  position: relative;
 
   &:nth-child(odd) {
     flex-direction: row-reverse;
     text-align: left;
+    & img {
+      right: -80px;
+    }
+  }
+  &:nth-child(even) {
+    & img {
+      left: -80px;
+    }
+  }
+  & img {
+    border-radius: 15px;
+    padding: 10px;
+    position: absolute;
+    top: -20px;
+    height: 160px;
   }
 
   &>div {
@@ -136,7 +156,8 @@ nav {
   }
 
   & .titulo {
-    font-weight: 400;
+    font-weight: 700;
+    padding: 1rem 0;
 
     & span {
       font-weight: 600;
@@ -154,11 +175,6 @@ nav {
     }
   }
 
-  & img {
-    background-color: #eee;
-    border-radius: 15px;
-    padding: 10px;
-  }
 }
 
 form input,

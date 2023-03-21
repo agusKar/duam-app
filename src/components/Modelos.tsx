@@ -33,7 +33,7 @@ const Modelos = ({ setState, modelos, setModelo }: Props) => {
               </div>
               <div className='titulo'>
                 {modelo.name}
-                <span><img src={label} alt="Label - Duam" />{modelo.tipo}</span>
+                {/* <span><img src={label} alt="Label - Duam" />{modelo.tipo}</span> */}
               </div>
             </div>
           ))
