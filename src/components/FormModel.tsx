@@ -91,12 +91,12 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
           modelo.tipo === "surcos" &&
           <>
             <Form.Group className="mb-4">
-              <Form.Label>Densidad de siembra deseada</Form.Label>
+              <Form.Label>Densidad de siembra deseada (Kg/ha)</Form.Label>
               <Form.Control onChange={handleInputChange} value={formData.densidadSiembra || ''} name="densidadSiembra" type="number" lang="es" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
             </Form.Group>
 
             <Form.Group className="mb-4">
-              <Form.Label>Distancia entre bajadas</Form.Label>
+              <Form.Label>Distancia entre bajadas (mts)</Form.Label>
               <Form.Control onChange={handleInputChange} value={formData.distanciaBajadas || ''} name="distanciaBajadas" type="number" step="0.01" placeholder="Separador decimal con punto. Ej.: 1.3" />
             </Form.Group>
 
@@ -160,7 +160,10 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
 
         </div>
       </Form>
-      <small className="mt-4 d-block text-muted">EL PG (PODER GERMINATIVO) NO ESTA CONTEMPLADO EN LOS CÁLCULOS de ESTE TEST. EL CLIENTE  DEBERÁ AGREGAR AL VALOR OBTENIDO LUEGO DE REALIZAR EL CÁLCULO, EL PORCENTUAL SUGERIDO POR EL PROVEEDOR DE LAS SEMILLAS O PRODUCTO A DISPERSAR.</small>
+      {
+        modelo.tipo === "surcos" && 
+        <small className="mt-4 d-block text-muted">EL PG (PODER GERMINATIVO) NO ESTA CONTEMPLADO EN LOS CÁLCULOS DE ESTE TEST. EL CLIENTE  DEBERÁ AGREGAR AL VALOR OBTENIDO LUEGO DE REALIZAR EL CÁLCULO, EL PORCENTUAL SUGERIDO POR EL PROVEEDOR DE LAS SEMILLAS O PRODUCTO A DISPERSAR.</small>
+      }
     </div>
   )
 }

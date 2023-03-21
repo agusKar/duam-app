@@ -18,7 +18,7 @@ const TablaManules = ({ modelos }: Props) => {
                 <Col xs={12} md={4} key={index}>
                   <div className="shadow-sm my-2 d-flex flex-column p-4 bg-white text-center">
                     <img src={pdf} alt="Duam" className="img-fluid mb-3" />
-                    <a href={process.env.PUBLIC_URL + "/pdf/" + modelo.pdf} download>
+                    <a href={modelo.pdf} target="_blank">
                       {modelo.name}
                     </a>
                   </div>
