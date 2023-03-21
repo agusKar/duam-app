@@ -77,7 +77,7 @@ const Reportes = () => {
             {
                 reportes?.map((value, index) => (
                   <tr key={index}>
-                    <td>{value}</td>
+                    <td>{value[1]}</td>
                     <td>{value[2]}</td>
                     <td>{value[3] == 0 ? "-" : value[3]}</td>
                     <td>{value[4] == 0 ? "-" : value[4]}</td>
