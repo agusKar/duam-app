@@ -90,7 +90,7 @@ const Reportes = () => {
       <h3 className="custom-title">Reportes para el email: <span>{email}</span></h3>
       {
         alert ?
-          <Alert variant='danger'>No se encontraron resultados para tu busqueda.</Alert>
+          <Alert variant='danger'>No se encontraron resultados para tu búsqueda.</Alert>
           :
           <>
             <Table bordered striped hover responsive variant='light' className='mt-3 text-center'>
@@ -149,11 +149,11 @@ const Reportes = () => {
             {isOnline ? (
               <Button className='mt-4' onClick={() => handleClick()}>Enviar reporte</Button>
             ) : (
-              <Alert variant='warning' className='mt-4'>No tenés conexión a internet. Volvé a intentarlo nuevamente mas tarde.</Alert>
+              <Alert variant='warning' className='mt-4'>No tenés conexión a internet. Volvé a intentarlo nuevamente más tarde.</Alert>
             )}
             {
               alertMsg != '' &&
-              <Alert variant='success' className='mt-4'>El email se envio correctamente.</Alert>
+              <Alert variant='success' className='mt-4'>El email se envió correctamente.</Alert>
               
             }
 
