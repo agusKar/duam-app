@@ -93,7 +93,7 @@ const Reportes = () => {
           <Alert variant='danger'>No se encontraron resultados para tu busqueda.</Alert>
           :
           <>
-            <Table bordered striped hover responsive variant='light' className='my-4 text-center'>
+            <Table bordered striped hover responsive variant='light' className='mt-3 text-center'>
               <thead>
                 <tr>
                   <th>Modelo</th>
@@ -147,13 +147,13 @@ const Reportes = () => {
               </tbody>
             </Table>
             {isOnline ? (
-              <Button onClick={() => handleClick()}>Enviar reporte</Button>
+              <Button className='mt-4' onClick={() => handleClick()}>Enviar reporte</Button>
             ) : (
-              <Alert variant='warning'>No tenés conexión a internet. Volvé a intentarlo nuevamente mas tarde.</Alert>
+              <Alert variant='warning' className='mt-4'>No tenés conexión a internet. Volvé a intentarlo nuevamente mas tarde.</Alert>
             )}
             {
               alertMsg != '' &&
-              <Alert variant='success'>El email se envio correctamente.</Alert>
+              <Alert variant='success' className='mt-4'>El email se envio correctamente.</Alert>
               
             }
 
