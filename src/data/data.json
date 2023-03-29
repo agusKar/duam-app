@@ -37,21 +37,20 @@
         }
     ],
     "semillas": [
-        "Ray Grass",
-        "Alfalfa",
-        "Trigo",
-        "Avena",
-        "Trebol Rojo",
-        "Centeno",
-        "Cebada / dilla",
-        "Colza",
-        "Quinoa",
-        "Microstar",
-        "Festuca",
         "Agropiro",
-        "Pasto ovillo",
-        "Meli lotus",
+        "Alfalfa",
+        "Avena",
+        "Cebada / Dilla",
+        "Centeno",
         "Colza",
-        "Moha"
+        "Festuca",
+        "Meli Lotus",
+        "Microstar",
+        "Moha",
+        "Pasto Ovillo",
+        "Quinoa",
+        "Ray Grass",
+        "Trébol Rojo",
+        "Trigo"
     ]
 }

@@ -4,8 +4,8 @@
   "display": "standalone",
   "scope": "/calculador/",
   "start_url": "/calculador/",
-  "name": "Duam - PWA",
-  "short_name": "Duam - PWA",
+  "name": "Duam - Calculador",
+  "short_name": "Duam - Calculador",
   "description": "Duam - Una Empresa Joven dedicada al dise\u00f1o y fabricaci\u00f3n de productos de metal para distintos sectores como el agro, la industria, etc. ",
   "icons": [
       {

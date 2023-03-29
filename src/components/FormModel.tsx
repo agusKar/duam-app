@@ -134,7 +134,7 @@ const FormModel = ({ setState, modelo, semillas }: Props) => {
             <Button className="custom-btn primary shadow" type="submit">Calcular</Button>
           </div>
           {
-            resultado.title != '' &&
+            resultado.title !== '' &&
             <>
               {
                 !resultado.estado ?
